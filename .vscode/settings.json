@@ -1,1 +1,37 @@
-{}
+{
+  "terminal.integrated.profiles.windows": {
+    "Solution": {
+      "overrideName": true,
+      "path": "C:\\Windows\\System32\\cmd.exe",
+      "args": [
+        "/K",
+        "cd /d D:\\Projects\\CSharp\\Carsties"
+      ]
+    },
+    "SearchService": {
+      "overrideName": true,
+      "path": "C:\\Windows\\System32\\cmd.exe",
+      "args": [
+        "/K",
+        "cd /d D:\\Projects\\CSharp\\Carsties\\src\\SearchService"
+      ]
+    },
+    "AuctionService": {
+      "overrideName": true,
+      "path": "C:\\Windows\\System32\\cmd.exe",
+      "args": [
+        "/K",
+        "cd /d D:\\Projects\\CSharp\\Carsties\\src\\AuctionService"
+      ]
+    },
+    "IdentityService": {
+      "overrideName": true,
+      "path": "C:\\Windows\\System32\\cmd.exe",
+      "args": [
+        "/K",
+        "cd /d D:\\Projects\\CSharp\\Carsties\\src\\IdentityService"
+      ]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "Solution",
+}
