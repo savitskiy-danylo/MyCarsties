@@ -8,7 +8,7 @@ public class AuctionDeletedConsumer : IConsumer<AuctionDeleted>
 {
   public async Task Consume(ConsumeContext<AuctionDeleted> context)
   {
-    System.Console.WriteLine($"--> Consuming auciton deleted: {context.Message.Id}");
+    System.Console.WriteLine($"--> Consuming auction deleted: {context.Message.Id}");
 
     await DB.DeleteAsync<Item>(context.Message.Id);
   }
