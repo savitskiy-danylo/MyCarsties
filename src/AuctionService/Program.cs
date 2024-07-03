@@ -47,6 +47,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     opt.TokenValidationParameters.NameClaimType = "username";
   });
 
+builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -65,3 +67,5 @@ catch (Exception e)
 }
 
 app.Run();
+
+public partial class Program { }

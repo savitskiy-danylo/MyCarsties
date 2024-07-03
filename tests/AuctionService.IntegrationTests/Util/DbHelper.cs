@@ -1,31 +1,26 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AuctionService.Data;
 using AuctionService.Entities;
-using Microsoft.EntityFrameworkCore;
 
-namespace AuctionService.Data
+namespace AuctionService.IntegrationTests.Util;
+
+public static class DbHelper
 {
-  public class DbInitializer
+  public static void InitDbForTests(AuctionDbContext db)
   {
-    public static void InitDb(WebApplication app)
-    {
-      using var scope = app.Services.CreateScope();
-      SeedDate(scope.ServiceProvider.GetService<AuctionDbContext>());
-    }
+    db.Auctions.AddRange(GetAuctionsForTest());
+    db.SaveChanges();
+  }
 
-    private static void SeedDate(AuctionDbContext context)
-    {
-      context.Database.Migrate();
+  public static void ReinitDbForTest(AuctionDbContext db)
+  {
+    db.Auctions.RemoveRange(db.Auctions);
+    db.SaveChanges();
+    InitDbForTests(db);
+  }
 
-      if (context.Auctions.Any())
-      {
-        Console.WriteLine("Already have data - no need to seed");
-        return;
-      }
-
-      var auctions = new List<Auction>()
+  private static List<Auction> GetAuctionsForTest()
+  {
+    return new List<Auction>()
       {
         	    // 1 Ford GT
             new Auction
@@ -206,9 +201,5 @@ namespace AuctionService.Data
                 }
             }
       };
-
-      context.AddRange(auctions);
-      context.SaveChanges();
-    }
   }
 }
