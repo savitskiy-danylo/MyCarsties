@@ -39,6 +39,14 @@
         "/K",
         "cd /d D:\\Projects\\CSharp\\Carsties\\src\\GatewayService"
       ]
+    },
+    "BiddingService": {
+      "overrideName": true,
+      "path": "C:\\Windows\\System32\\cmd.exe",
+      "args": [
+        "/K",
+        "cd /d D:\\Projects\\CSharp\\Carsties\\src\\BiddingService"
+      ]
     }
   },
   "terminal.integrated.defaultProfile.windows": "Solution",
