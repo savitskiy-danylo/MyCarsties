@@ -7,7 +7,8 @@ const nextConfig = {
         hostname: "cdn.pixabay.com"
       }
     ]
-  }
+  },
+  output: 'standalone'
 };
 
 export default nextConfig;
