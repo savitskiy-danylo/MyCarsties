@@ -4,6 +4,8 @@ const baseUrl = process.env.API_URL;
 
 async function get(url: string)
 {
+  console.log("API_URL:" + baseUrl + ";\n url: " + url + ";\n request url: " + baseUrl + url);
+
   const requestOptions = {
     method: 'GET',
     headers: await getHeaders()
@@ -76,7 +78,7 @@ async function handleResponse(response: Response)
   } else {
     const error = {
       status: response.status,
-      message: typeof data === 'string' ? data : response.statusText,
+      message: typeof data === 'string' && data.length > 0 ? data : response.statusText,
     }
 
     return { error };
